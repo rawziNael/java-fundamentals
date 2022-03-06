@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import java.util.*;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
@@ -50,5 +52,51 @@ public class Library {
             }
         }
         return lowest;
+    }
+
+    //lab03 (Analyzing Weather Data & Tallying Election)
+
+    public static String analyzingWeatherData(int[][] data) {
+        int min = data[0][0];
+        int max = data[0][0];
+        HashSet<Integer> temps = new HashSet<>();
+
+        for (int[] week : data) {
+            for (int temp : week) {
+                if (temp < min) {
+                    min = temp;
+                }
+                if (temp > max) {
+                    max = temp;
+                }
+                temps.add(temp);
+            }
+        }
+        String result = "High: " + max + "\n" + "Low: " + min;
+        String very = "";
+
+        for (int i = min; i < max; i++) {
+            if (!temps.contains(i)) {
+                very += "\n" + "Never saw temperature: " + i;
+            }
+        }
+        return result + very;
+    }
+
+    //tally election
+    public static String tally(List<String> arr) {
+        String winner  = arr.get(0);
+        HashMap<String, Integer> results = new HashMap<>();
+        for(String candidate : arr) {
+            if (results.containsKey(candidate)) {
+                results.put(candidate, results.get(candidate) + 1);
+            } else {
+                results.put(candidate, 1);
+            }
+            if (results.get(candidate) > results.get(winner )) {
+                winner  = candidate;
+            }
+        }
+        return winner ;
     }
 }
