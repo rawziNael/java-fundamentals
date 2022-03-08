@@ -21,3 +21,10 @@ contains "else"
 and is not a blank line  
 Any line that does not meet this criteria causes a System.out.println that details what line contains the error.  
 When this method runs you should expect to see either nothing - no errors - or a print out of each line that contains an error.
+
+### Lab-06
+
+In this lab the tasks being solved by using:
+- Create a resturant class, inside it I create variables name, price catagoery, and number of stars the create getters and used toString method.
+- Create interface and include inside it some methods like addReviews and getStars.
+- and I used LinkedList and List built-in methods.
