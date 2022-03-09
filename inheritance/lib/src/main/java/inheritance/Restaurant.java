@@ -2,7 +2,7 @@ package inheritance;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Restaurant implements RestaurantReview{
+public class Restaurant implements reviewable {
 
         // Instance properties
         private String name;
@@ -37,7 +37,7 @@ public class Restaurant implements RestaurantReview{
         }
 
         // AddsReview method
-        public void addReview(Review review) {
+        public void addReview(Review review){
             reviews.add(review);
         }
 
