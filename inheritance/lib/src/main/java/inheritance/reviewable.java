@@ -1,7 +1,7 @@
 package inheritance;
 import java.util.LinkedList;
 
-public interface RestaurantReview{
+public interface reviewable {
     String toString();
     void addReview(Review review);
     String getName();
