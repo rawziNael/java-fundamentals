@@ -12,12 +12,32 @@ public class Library {
         Review review1 = new Review("delicious" , "Rawzi" , 2);
         Review review2 = new Review("good" , "Mohammed" , 4);
         Review review3 = new Review("bad" , "Rawzi" , 5);
-        System.out.println(review1);
+        //System.out.println(review1);
 
         System.out.println(review1.toString());
 //        pizzaRest.addReview(review1);
 //        pizzaRest.addReview(review2);
 //        pizzaRest.addReview(review3);
 //        System.out.println(pizzaRest.toString());
+
+        Shop shop = new Shop("R&R" , "Buy anthing" , "$");
+        System.out.println(shop.toString());
+
+        shop.addReview(new Review("Amazing!", "Rawzi", 5));
+        shop.addReview(new Review("overrated", "Ahmad", 2));
+        System.out.println(shop.toString());
+
+        Theater cinema = new Theater("cinema");
+//        System.out.println(cinema.toString());
+//        cinema.addMovie("SpiderMan");
+//        cinema.addMovie("Tom & Jerry");
+//        //System.out.println(cinema.toString());
+//        System.out.println(cinema.getMoviesList());
+
+//
+//        cinema.addReview(new Review("It's the best", "Steve Makleren", 4));
+//        cinema.addReview(new Review("great", "Jack Welsher", 5));
+//        System.out.println(cinema.toString());
+
     }
 }

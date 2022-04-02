@@ -4,7 +4,9 @@
 package inheritance;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AppTest {
 
@@ -49,5 +51,60 @@ class AppTest {
     public void testToStringReview() {
         assertEquals("Review{reviewText='Delicious', author='Omar', numOfStars=5.0}",review1.toString());
         assertEquals("Review{reviewText='not bad', author='Rawzi', numOfStars=2.0}",review3.toString());
+    }
+
+
+
+    //***************************************** lab 07 **********************************************************
+
+    @Test
+    public void testShopToString() {
+        Shop shop = new Shop("Carrefour", "groceries and supplies", "$");
+        assertEquals("Shop{name='Carrefour', description='groceries and supplies', price='$', reviews=[]}" , shop.toString());
+    }
+
+    @Test
+    public void testShopAddReview() {
+        Shop shop = new Shop("LCW", "modern fashion", "$$");
+
+        shop.addReview(new Review("Amazing!", "Rawzi", 5));
+        shop.addReview(new Review("overrated", "Ahmad", 2));
+        assertEquals(2, shop.reviews.size());
+        assertEquals("Shop{name='LCW', description='modern fashion', price='$$', reviews=[Review{reviewText='Amazing!', author='Rawzi', numOfStars=5.0}, Review{reviewText='overrated', author='Ahmad', numOfStars=2.0}]}", shop.toString());
+
+
+
+    }
+
+
+
+    @Test
+    public void testTheaterToString() {
+        Theater grand = new Theater("Grand Cinema");
+        assertEquals("Theater{name='Grand Cinema', movies=[], reviews=[]}", grand.toString());
+        grand.addMovie("SpiderMan");
+        assertEquals("Theater{name='Grand Cinema', movies=[SpiderMan], reviews=[]}", grand.toString());
+    }
+
+    @Test
+    public void testTheaterAddMovie() {
+        Theater cinema = new Theater("Majestic");
+        cinema.addMovie("We are millers");
+        assertEquals(1, cinema.getMoviesList().size());
+        assertEquals("We are millers", cinema.getMoviesList().getFirst());
+
+        cinema.addMovie("Danger!");
+        assertEquals("[We are millers, Danger!]", cinema.getMoviesList().toString());
+    }
+
+    @Test
+    public void testTheaterAddReview() {
+        Theater theater = new Theater("Theater");
+
+        theater.addReview(new Review("It's the best", "Steve Makleren", 4));
+        theater.addReview(new Review("great", "Jack Welsher", 5));
+        assertEquals(2, theater.getReviews().size());
+
+        assertEquals("Theater{name='Theater', movies=[], reviews=[Review{reviewText='It's the best', author='Steve Makleren', numOfStars=4.0}, Review{reviewText='great', author='Jack Welsher', numOfStars=5.0}]}" , theater.toString());
     }
 }
