@@ -6,23 +6,18 @@ package inheritance;
 public class Library {
     public static void main(String[] args) {
         System.out.println("Test =======> Pizza Restaurant");
-        Restaurant();
-    }
-    public static void Restaurant(){
-
         Restaurant pizzaRest = new Restaurant("hot pizza", 100, 4);
-        //add reviews
-        Review firstReview = new Review("delicious" ,"John" ,5);
-        Review sceReview = new Review("very good" ,"Rami" ,4);
-        Review thirdReview = new Review("bad" ,"Sara" ,1);
+        //System.out.println(pizzaRest.toString());
 
+        Review review1 = new Review("delicious" , "Rawzi" , 2);
+        Review review2 = new Review("good" , "Mohammed" , 4);
+        Review review3 = new Review("bad" , "Rawzi" , 5);
+        System.out.println(review1);
 
-        pizzaRest.addReview(firstReview);
-        pizzaRest.addReview(sceReview);
-        pizzaRest.addReview(thirdReview);
-
-        pizzaRest.getStars();
-
-        System.out.println(pizzaRest.toString());
+        System.out.println(review1.toString());
+//        pizzaRest.addReview(review1);
+//        pizzaRest.addReview(review2);
+//        pizzaRest.addReview(review3);
+//        System.out.println(pizzaRest.toString());
     }
 }

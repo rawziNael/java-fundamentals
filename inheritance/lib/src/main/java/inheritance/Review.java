@@ -3,18 +3,17 @@ package inheritance;
 public class Review {
 
     private String body;
-    private int numOfStars;
+    private double stars;
     private String author;
 
     //constructor
-    public Review(String body, String author, int numOfStars)
-    {
-        if ( numOfStars > 5 || numOfStars < 0 ){
+    public Review(String body, String author, double stars) {
+        if ( stars > 5 || stars < 0 ){
             System.out.println("Error");
         }
         this.body = body;
         this.author = author;
-        this.numOfStars = numOfStars;
+        this.stars = stars;
     }
 
     //getters
@@ -26,8 +25,8 @@ public class Review {
         return author;
     }
 
-    public int getNumOfStars() {
-        return numOfStars;
+    public double getStars() {
+        return stars;
     }
 
     // Returns a string with this instance of the Review's info
@@ -36,7 +35,7 @@ public class Review {
         return "Review{" +
                 "reviewText='" + getBody() + '\'' +
                 ", author='" + getAuthor() + '\'' +
-                ", numOfStars=" + getNumOfStars() +
+                ", numOfStars=" + getStars() +
                 '}';
     }
 }

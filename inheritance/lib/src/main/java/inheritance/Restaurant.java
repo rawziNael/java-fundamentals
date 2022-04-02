@@ -1,70 +1,67 @@
 package inheritance;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Restaurant implements RestaurantReview{
+public class Restaurant {
 
-        // Instance properties
-        private String name;
-        private int numOfStars;
-        private double priceCategory;
-        private LinkedList<Review> reviews;
-        private List<Integer> starRate;
+    // Instance properties
+    private String name;
+    private double numOfStars;
+    private double price;
+    private LinkedList<Review> reviews;
+    private List<Double> starRate;
 
-        // Constructor
-        public Restaurant(String name, double priceCategory, int numOfStars) {
-            this.name = name;
-            this.numOfStars = 0;
-            this.priceCategory = priceCategory;
+    // Constructor
+    public Restaurant(String name, double priceCategory, double numOfStars) {
+        this.name = name;
+        this.numOfStars = numOfStars;
+        this.price = priceCategory;
+        this.reviews = new LinkedList();
+        this.starRate = new ArrayList<>();
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public double getNumOfStars() {
+        return numOfStars;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public LinkedList<Review> getReviews() {
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        reviews.add(review);
+        updateRestaurantStars(review.getStars());
+    }
+
+    // Updates this instance of the Restaurant's star rating
+    protected void updateRestaurantStars(double stars) {
+        this.starRate.add(stars);
+        double total = 0;
+        for (double star : starRate) {
+            total += star;
         }
+        this.numOfStars = total / starRate.size();
+    }
 
-        public String getName() {
-            return name;
-        }
+    // Returns a string
 
-        @Override
-        public void getStars() {
-
-        }
-
-        public int getNumOfStars() {
-            return numOfStars;
-        }
-
-        public double getPrice() {
-            return priceCategory;
-        }
-
-        // AddsReview method
-        public void addReview(Review review) {
-            reviews.add(review);
-        }
-
-        @Override
-        public LinkedList<Review> getReviews() {
-            return this.reviews;
-        }
-
-        // Updates method
-        public void updateRestaurantStars(int numStars) {
-            this.starRate.add(numStars);
-            Integer sum = 0;
-            for (Integer star : starRate) {
-                sum += star;
-            }
-                this.numOfStars = sum / starRate.size();
-        }
-
-
-        // Returns a string
-        @Override
-        public String toString() {
-            return "Restaurant{" +
-                    "name='" + getName() + '\'' +
-                    ", price=" + getPrice() +
-                    ", numOfStars=" + getNumOfStars() +
-                    ", reviewRestaurant=" + getReviews() +
-                    '}';
-        }
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", numOfStars=" + numOfStars +
+                ", price=" + price +
+                ", reviews=" + reviews +
+                '}';
+    }
 }
